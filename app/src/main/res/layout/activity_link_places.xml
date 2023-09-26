@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LinkPlacesActivity">
+    <RelativeLayout
+
+        android:id="@+id/top_layout"
+        android:background="@color/blue_p"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <ImageView
+
+            android:layout_gravity="start"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/arrow_back"
+            android:layout_marginLeft="15dp"
+
+            android:layout_width="50dp"
+            android:layout_height="50dp"></ImageView>
+        <TextView
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            android:text="Link Places"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/desc_layout"
+        android:layout_below="@id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="120dp">
+        <TextView
+            android:id="@+id/tv_map_placing_top"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="Map Placing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+        <TextView
+            android:id="@+id/tv_map_placing_description"
+            android:layout_marginTop="5dp"
+            android:layout_centerHorizontal="true"
+            android:textSize="12sp"
+            android:layout_below="@id/tv_map_placing_top"
+            android:text="link places using following buttons with respect to their floors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+        <Button
+            android:textColor="@color/white"
+            android:text="Link Floors"
+            android:layout_marginTop="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tv_map_placing_description"
+            android:background="@color/blue_p"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></Button>
+    </RelativeLayout>
+ <ScrollView
+     android:layout_below="@id/desc_layout"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent">
+     <GridLayout
+
+         android:id="@+id/grid_layout"
+         android:layout_marginTop="10dp"
+
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+
+
+     </GridLayout>
+ </ScrollView>
+
+
+</RelativeLayout>

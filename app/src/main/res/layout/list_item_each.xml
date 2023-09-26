@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginTop="15dp"
+    android:backgroundTint="@color/purple_for_list_items"
+    android:background="@drawable/borders"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+
+    android:layout_height="120dp">
+    <ImageView
+        android:id="@+id/image_of_place_list_item"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"></ImageView>
+    <LinearLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:layout_weight="3"
+        android:layout_width="0dp"
+        android:layout_height="100dp">
+        <TextView
+            android:textColor="@color/white"
+            android:id="@+id/tv_for_name"
+            android:text="Name"
+            style="@style/TextAppearance.Material3.HeadlineMedium"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+        <TextView
+            android:textColor="@color/white"
+            android:id="@+id/tv_for_floor"
+            android:textSize="15sp"
+            android:text="Floor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+        <TextView
+            android:textColor="@color/white"
+            android:id="@+id/tv_for_type"
+            android:textSize="15sp"
+            android:text="Type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+    </LinearLayout>
+    <LinearLayout
+        android:clickable="true"
+
+        android:layout_weight="3"
+        android:gravity="end"
+        android:layout_width="1dp"
+        android:layout_height="100dp">
+        <ImageButton
+            android:id="@+id/deletePlaceRecycler"
+            android:src="@drawable/baseline_delete_forever_24"
+            android:backgroundTint="@color/blue_p"
+            android:background="@drawable/simple_borders_4"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"></ImageButton>
+    </LinearLayout>
+
+
+</LinearLayout>

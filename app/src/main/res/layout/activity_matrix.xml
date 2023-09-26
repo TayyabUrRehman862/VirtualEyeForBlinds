@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MatrixActivity">
+    <TextView
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:text="Mapping"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></TextView>
+    <GridLayout
+        android:id="@+id/gridLayoutMatrix"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnCount="4"
+        android:rowCount="4"
+        android:useDefaultMargins="true"
+        android:alignmentMode="alignBounds"
+        android:columnOrderPreserved="false"
+        android:rowOrderPreserved="false"
+        android:divider="@drawable/grid_divider"
+        android:showDividers="beginning|middle|end"
+        android:dividerPadding="4dp">
+
+    </GridLayout>
+
+
+
+</LinearLayout>

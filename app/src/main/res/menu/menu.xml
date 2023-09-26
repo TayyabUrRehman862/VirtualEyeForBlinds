@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+
+    >
+<group android:checkableBehavior="single"
+
+    >
+    <item
+
+        android:id="@+id/menu_add_home"
+        android:icon="@mipmap/add_home_foreground"
+        android:title="Add Home" />
+    <item android:id="@+id/menu_add_place"
+
+        android:icon="@mipmap/add_place_foreground"
+        android:title="Add Place"></item>
+    <item android:id="@+id/menu_add_person"
+
+        android:icon="@mipmap/add_person_foreground"
+        android:title="Add Person"></item>
+    <item
+        android:title="Map"
+        android:icon="@mipmap/map_foreground"
+        android:id="@+id/menu_link_places"></item>
+    <item
+        android:title="Exit"
+        android:icon="@mipmap/exit_foreground"
+        android:id="@+id/menu_exit"></item>
+</group>
+</menu>

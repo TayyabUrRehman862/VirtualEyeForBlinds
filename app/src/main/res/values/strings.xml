@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">VirtualEyeForBlinds</string>
+    <string name="open">customnavigation</string>
+    <string name="close">customnavigation</string>
+</resources>

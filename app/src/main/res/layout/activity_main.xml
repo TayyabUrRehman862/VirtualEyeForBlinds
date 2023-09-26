@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<androidx.drawerlayout.widget.DrawerLayout
+
+
+    android:id="@+id/drawer"
+    android:orientation="vertical"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity">
+
+
+    <RelativeLayout
+
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.camera.view.PreviewView
+            android:background="@color/white"
+            android:id="@+id/previewCamera"
+            android:layout_width="match_parent"
+            android:layout_height="620dp">
+
+
+
+        </androidx.camera.view.PreviewView>
+        <com.example.virtualeyeforblinds.extraClasses.OverlayView
+            android:id="@+id/OverlayView"
+            android:layout_width="match_parent"
+            android:layout_height="620dp"></com.example.virtualeyeforblinds.extraClasses.OverlayView>
+
+
+        <RelativeLayout
+
+            android:backgroundTint="@color/blue_p"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:background="@drawable/simple_corners"
+            android:layout_height="180dp">
+
+            <ImageView
+                android:id="@+id/btn_navigation"
+                android:layout_toRightOf="@id/btn_person_detection"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignBaseline="@id/btn_person_detection"
+                android:layout_marginLeft="15dp"
+
+                android:layout_marginTop="70dp"
+                android:background="@drawable/circle"
+                android:src="@mipmap/navigate_foreground"></ImageView>
+
+            <ImageButton
+
+
+                android:clickable="true"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/btn_person_detection"
+                android:layout_marginTop="70dp"
+                android:background="@drawable/circle"
+                android:src="@mipmap/person_detection_foreground"
+                android:layout_width="70dp"
+                android:layout_height="70dp">
+
+            </ImageButton>
+            <ImageView
+                android:layout_marginRight="15dp"
+                android:layout_toLeftOf="@id/btn_person_detection"
+                android:id="@+id/btn_object_detection"
+                android:layout_marginTop="70dp"
+                android:background="@drawable/circle"
+                android:src="@drawable/baseline_interests_24"
+                android:layout_width="70dp"
+                android:layout_height="70dp">
+
+            </ImageView>
+        </RelativeLayout>
+        <ImageView
+            android:layout_marginBottom="140dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="70dp"
+            android:id="@+id/mic"
+
+
+            android:src="@drawable/mic_black"
+            android:background="@drawable/circle"
+            android:layout_width="70dp"
+            android:layout_height="70dp"></ImageView>
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+    <!-- This should be always half the height, can also be calculated and added programtically -->
+
+
+
+
+ <!-- This should be always half the height, can also be calculated and added programtically -->
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="20dp">
+        <androidx.appcompat.widget.Toolbar
+            app:title="Virtual Eye For Blinds"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/toolbar"
+            app:titleTextColor="@color/white"
+            android:background="@color/blue_p"
+            ></androidx.appcompat.widget.Toolbar>
+    </RelativeLayout>
+    <com.google.android.material.navigation.NavigationView
+
+        android:background="@color/white"
+        app:menu="@menu/menu"
+        android:fitsSystemWindows="true"
+        app:itemTextColor="@color/white"
+        app:itemIconTint="@color/white"
+        app:itemBackground="@drawable/menu_item_padding"
+        app:itemIconSize="50dp"
+        app:itemHorizontalPadding="40dp"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/menu_header"
+        android:id="@+id/navmenu"
+        android:layout_width="wrap_content"
+
+        android:layout_height="match_parent">
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:backgroundTint="@color/blue_p"
+            android:background="@drawable/simple_corners"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:text="About this app"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+            <TextView
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:text="Virtual Eye For Blinds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+            <TextView
+                android:textSize="30sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+        </LinearLayout>
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+  </androidx.drawerlayout.widget.DrawerLayout>
+

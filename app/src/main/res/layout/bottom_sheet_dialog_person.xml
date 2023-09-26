@@ -1,0 +1,112 @@
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    app:layout_behavior="@string/bottom_sheet_behavior"
+    android:id="@+id/toppbottomsheet"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".PlacesActivity">
+
+    <LinearLayout
+        android:clickable="true"
+
+        android:backgroundTint="@color/black"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:background="@drawable/to_round"
+        android:id="@+id/layout_for_back"
+        android:layout_width="100dp"
+        android:layout_height="5dp">
+
+    </LinearLayout>
+    <LinearLayout
+
+        android:id="@+id/layout_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="Name"
+            android:textAppearance="@style/ThemeOverlay.MaterialComponents.Dark"
+            android:textSize="20sp"></TextView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:textAlignment="center"
+
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="6"
+            android:hint="name of Person"
+            app:boxBackgroundColor="@color/light_green"
+            app:boxStrokeColor="@color/border_green">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_add_person_name_dialog"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></com.google.android.material.textfield.TextInputEditText>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:padding="10dp"
+        android:textAppearance="@style/ThemeOverlay.MaterialComponents.Dark"
+        android:id="@+id/tv_selected_images_person"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:textSize="17sp"
+        android:layout_below="@id/layout_name"
+        android:text="Selected Images: "></TextView>
+    <Button
+        android:onClick="requestPermission"
+        android:backgroundTint="@color/blue_p"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"
+        android:id="@+id/btn_browse_images"
+        android:layout_below="@id/tv_selected_images_person"
+        android:layout_width="400dp"
+        android:text="Browse Images"
+
+        android:layout_height="wrap_content">
+
+    </Button>
+    <Button
+        android:onClick="on_click_Save"
+        android:id="@+id/btn_save_image"
+        android:text="Save"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/btn_back_green"
+        android:layout_below="@id/btn_browse_images"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"></Button>
+    <Button
+        android:onClick="on_click_go_back"
+        android:id="@+id/btn_cancel_image"
+        android:text="Back"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/purple_500"
+        android:layout_below="@id/btn_browse_images"
+        android:layout_toRightOf="@id/btn_save_image"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="50dp"
+
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"></Button>
+</RelativeLayout>
