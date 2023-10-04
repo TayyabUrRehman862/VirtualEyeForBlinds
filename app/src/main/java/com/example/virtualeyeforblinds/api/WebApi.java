@@ -28,7 +28,7 @@ import retrofit2.http.Part;
 public interface WebApi {
 
 
-    String BASE_URL = "http://192.168.1.205:5000/api/";
+    String BASE_URL = "http://192.168.100.6:5000/api/";
 
 
 
