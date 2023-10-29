@@ -1,0 +1,12 @@
+<!-- cell_background.xml -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape
+            android:shape="rectangle">
+            <stroke
+                android:width="2dp"
+                android:color="@color/black" /> <!-- Border color -->
+            <solid android:color="@color/white" /> <!-- Background color -->
+        </shape>
+    </item>
+</layer-list>
