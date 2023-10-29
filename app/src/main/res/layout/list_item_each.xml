@@ -43,23 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
     </LinearLayout>
-    <LinearLayout
-        android:clickable="true"
 
-        android:layout_weight="3"
-        android:gravity="end"
-        android:layout_width="1dp"
-        android:layout_height="100dp">
-        <ImageButton
-            android:id="@+id/deletePlaceRecycler"
-            android:src="@drawable/baseline_delete_forever_24"
-            android:backgroundTint="@color/blue_p"
-            android:background="@drawable/simple_borders_4"
-            android:layout_marginTop="30dp"
-            android:layout_marginRight="30dp"
-            android:layout_width="40dp"
-            android:layout_height="40dp"></ImageButton>
-    </LinearLayout>
 
 
 </LinearLayout>

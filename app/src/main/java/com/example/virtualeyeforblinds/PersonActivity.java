@@ -27,6 +27,8 @@ import com.example.virtualeyeforblinds.api.DataListener;
 import com.example.virtualeyeforblinds.api.RetrofitClient;
 import com.example.virtualeyeforblinds.api.WebApi;
 import com.example.virtualeyeforblinds.databinding.ActivityPersonBinding;
+import com.example.virtualeyeforblinds.extraClasses.DataStorage;
+import com.example.virtualeyeforblinds.progessbar.ProgressDialogFragment;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
@@ -57,7 +59,7 @@ public class PersonActivity extends AppCompatActivity {
             String name = etname.getText().toString();
 
             Person p = new Person();
-            p.pname=name;
+            p.Name=name;
 
             p.img=imageUris.get(0);
             adapter.addPerson(p);
@@ -84,42 +86,53 @@ public class PersonActivity extends AppCompatActivity {
     }
     public ArrayList<Person> getDataForTheAdapter(){
 
+        try {
 
-//        WebApi api= RetrofitClient.getInstance().getMyApi();
-//        api.getAllPersons().enqueue(new Callback<ArrayList<Person>>() {
-//            @Override
-//            public void onResponse(Call<ArrayList<Person>> call, Response<ArrayList<Person>> response) {
-//                if(response.isSuccessful()){
-//                     ArrayList<Person> arr1=response.body();
+
+
+            WebApi api = RetrofitClient.getInstance().getMyApi();
+            api.getAllPersons().enqueue(new Callback<ArrayList<Person>>() {
+                @Override
+                public void onResponse(Call<ArrayList<Person>> call, Response<ArrayList<Person>> response) {
+                    if (response.isSuccessful()) {
+
+                        ArrayList<Person> arr1 = response.body();
+
+                        arr = (ArrayList<Person>) arr1.clone();
+
+
+                        Toast.makeText(PersonActivity.this, arr.size()+"", Toast.LENGTH_SHORT).show();
+
+                        //listener.onDataReceived(arr);
+                        //Toast.makeText(PersonActivity.this, "List waS empty", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ArrayList<Person>> call, Throwable t) {
+                    //listener.onFailure();
+                    Toast.makeText(PersonActivity.this, "Failure", Toast.LENGTH_SHORT).show();
+                }
+
+            });
+
+        }catch (Exception e){
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
+//        Person p = new Person();
+//        p.pname="Shafeeq";
 //
-//                    arr=arr1;
-//                    listener.onDataReceived(arr);
-//                    Toast.makeText(PersonActivity.this, "List waS empty", Toast.LENGTH_SHORT).show();
-//                }
-//            }
+//        Person p1 = new Person();
+//        p1.pname="Imran Khan";
 //
-//            @Override
-//            public void onFailure(Call<ArrayList<Person>> call, Throwable t) {
-//                listener.onFailure();
-//                Toast.makeText(PersonActivity.this, "Failure", Toast.LENGTH_SHORT).show();
-//            }
 //
-//        });
+//        p1.img= Uri.parse("android.resource://com.example.virtualeyeforblinds/mipmap/place");
+//        p.img=Uri.parse("android.resource://com.example.virtualeyeforblinds/mipmap/place");
 
-
-
-        Person p = new Person();
-        p.pname="Shafeeq";
-
-        Person p1 = new Person();
-        p1.pname="Imran Khan";
-
-
-        p1.img= Uri.parse("android.resource://com.example.virtualeyeforblinds/mipmap/place");
-        p.img=Uri.parse("android.resource://com.example.virtualeyeforblinds/mipmap/place");
-
-        arr.add(p);
-        arr.add(p1);
+        //arr.add(p);
+        //arr.add(p1);
+        //Toast.makeText(this, arr.size()+"", Toast.LENGTH_SHORT).show();
         return arr;
         //return arr1;
     }
@@ -235,9 +248,15 @@ public class PersonActivity extends AppCompatActivity {
         binding = ActivityPersonBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        //ArrayList<String> b=a.getStringArrayList("persondata");
+        DataStorage dataStorage = DataStorage.getInstance();
+        ArrayList<Person> personArrayList = dataStorage.getPersonArrayList();
+
         binding.itemsListRcvPerson.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyPersonAdapter(getDataForTheAdapter()); // Initialize adapter with an empty list
+        adapter = new MyPersonAdapter(personArrayList);
+        // Initialize adapter with an empty list
         binding.itemsListRcvPerson.setAdapter(adapter);
+
 
 
 

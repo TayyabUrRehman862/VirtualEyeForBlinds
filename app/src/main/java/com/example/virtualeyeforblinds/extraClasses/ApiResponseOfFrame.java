@@ -7,6 +7,8 @@ public class ApiResponseOfFrame {
     private String place;
     private String turn;
 
+    private String doorDirection;
+
     private ArrayList<Coordinate> coordinates;
 
 
@@ -26,4 +28,6 @@ public class ApiResponseOfFrame {
     public ArrayList<Coordinate> getCoordinates(){
         return coordinates;
     }
+
+    public String getDoorDirection(){return doorDirection;}
 }

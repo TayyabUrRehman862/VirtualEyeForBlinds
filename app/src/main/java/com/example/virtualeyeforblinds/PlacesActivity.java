@@ -32,6 +32,7 @@ import android.widget.Toast;
 import com.example.virtualeyeforblinds.api.RetrofitClient;
 import com.example.virtualeyeforblinds.api.WebApi;
 import com.example.virtualeyeforblinds.databinding.ActivityPlacesBinding;
+import com.example.virtualeyeforblinds.extraClasses.DataStorage;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.io.IOException;
@@ -212,8 +213,8 @@ public class PlacesActivity extends AppCompatActivity {
 //                }
                 }
             }
-            TextView v = bottomSheetDialog.findViewById(R.id.tv_selected_images);
-            v.setText("Selected Images: " + imageUris.size());
+//            TextView v = bottomSheetDialog.findViewById(R.id.tv_selected_images);
+//            v.setText("Selected Images: " + imageUris.size());
         }catch(Exception e){
             Toast.makeText(this,e.getMessage(),Toast.LENGTH_LONG);
         }
@@ -273,6 +274,11 @@ public class PlacesActivity extends AppCompatActivity {
         p1.type="LAB1";
         p1.floor="2nd";
 
+
+
+
+
+
         p1.img=Uri.parse("android.resource://com.example.virtualeyeforblinds/mipmap/place");
         p.img=Uri.parse("android.resource://com.example.virtualeyeforblinds/mipmap/place");
 
@@ -328,13 +334,15 @@ public class PlacesActivity extends AppCompatActivity {
             binding = ActivityPlacesBinding.inflate(getLayoutInflater());
 
             setContentView(binding.getRoot());
+            DataStorage dataStorage = DataStorage.getInstance();
+            ArrayList<Place> placesArrayList = dataStorage.getPlacesArrayList();
 
             binding.itemsListRcv.setLayoutManager(new LinearLayoutManager(this));
 
 
 
 
-             adapter = new MyAdapter(getDataForTheAdapter());
+             adapter = new MyAdapter(placesArrayList);
 //
             binding.itemsListRcv.setAdapter(adapter);
 

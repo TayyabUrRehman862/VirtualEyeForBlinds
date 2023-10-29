@@ -3,16 +3,27 @@ package com.example.virtualeyeforblinds;
 import android.net.Uri;
 
 public class Person {
-    public String pname;
+
+    public int ID;
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public String Name;
 
     public Uri img;
 
-    public String getPname() {
-        return pname;
+    public String getName() {
+        return Name;
     }
 
-    public void setPname(String pname) {
-        this.pname = pname;
+    public void setName(String Name) {
+        this.Name = Name;
     }
     public void setImgPerson(Uri img){
         this.img=img;

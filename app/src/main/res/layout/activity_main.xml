@@ -18,11 +18,13 @@
 
 
     <RelativeLayout
-
+        android:background="@android:color/transparent"
         android:id="@+id/top"
+        android:layout_marginTop="55dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <androidx.camera.view.PreviewView
+
             android:background="@color/white"
             android:id="@+id/previewCamera"
             android:layout_width="match_parent"
@@ -113,6 +115,7 @@
 
 
     <RelativeLayout
+        android:background="@color/Transparent"
         android:layout_width="wrap_content"
         android:layout_height="20dp">
         <androidx.appcompat.widget.Toolbar

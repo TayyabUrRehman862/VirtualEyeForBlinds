@@ -4,12 +4,13 @@ import android.content.Context;
 import android.net.Uri;
 
 
-import androidx.appcompat.resources.Compatibility;
-import androidx.camera.core.ImageProxy;
-
 import com.example.virtualeyeforblinds.Person;
+import com.example.virtualeyeforblinds.Place;
 import com.example.virtualeyeforblinds.extraClasses.ApiResponeOfFrameObject;
 import com.example.virtualeyeforblinds.extraClasses.ApiResponseOfFrame;
+import com.example.virtualeyeforblinds.extraClasses.DetailsSpinner;
+import com.example.virtualeyeforblinds.extraClasses.Links;
+import com.example.virtualeyeforblinds.extraClasses.PathGetter;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,6 +24,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Part;
 
 public interface WebApi {
@@ -32,15 +34,28 @@ public interface WebApi {
 
 
 
+    @PUT("link/put_all")
+    public Call<String> createOrUpdateMatrix(@Body ArrayList<DetailsSpinner> detailsSpinners);
 
+    @POST("navigation/get_path")
+    public Call<ArrayList<ArrayList<String>>> path(
+            @Body PathGetter p
+    );
+
+    @GET("link/get_all")
+    public Call<ArrayList<Links>> getAllLinks();
+
+
+    @GET("place/get_all")
+    public Call<ArrayList<Place>> getAllplaces();
 
     @GET("person/get_all")
     public Call<ArrayList<Person>> getAllPersons();
 
     @Multipart
-    @POST("navigation/recognize_place")
+    @POST("navigation/recognize_places")
     public Call<ApiResponseOfFrame> frame(
-            @Part MultipartBody.Part img,
+            @Part ArrayList<MultipartBody.Part> img,
             @Part("height") RequestBody height,
             @Part("width") RequestBody width,
             @Part("floor") RequestBody floor

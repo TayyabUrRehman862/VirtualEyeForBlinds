@@ -4,6 +4,29 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
+    <LinearLayout
+
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_onClickSaveMatrix"
+            android:text="Save"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/dark_green"
+            android:layout_width="80dp"
+            android:layout_height="50dp"></Button>
+        <Button
+            android:id="@+id/btn_onClickCancelMatrix"
+            android:layout_marginLeft="60dp"
+            android:text="Cancel"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/purple_500"
+            android:layout_width="80dp"
+            android:layout_height="50dp"></Button>
+    </LinearLayout>
 
     <HorizontalScrollView
         android:layout_width="match_parent"
@@ -24,5 +47,8 @@
         </ScrollView>
 
     </HorizontalScrollView>
+
+
+
 
 </LinearLayout>

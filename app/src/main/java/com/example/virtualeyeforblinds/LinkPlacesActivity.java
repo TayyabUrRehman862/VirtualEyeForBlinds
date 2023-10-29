@@ -6,6 +6,7 @@ import androidx.core.view.GravityCompat;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +15,18 @@ import android.widget.GridLayout;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import com.example.virtualeyeforblinds.api.RetrofitClient;
+import com.example.virtualeyeforblinds.api.WebApi;
 import com.example.virtualeyeforblinds.databinding.ActivityLinkPlacesBinding;
+import com.example.virtualeyeforblinds.extraClasses.DataStorage;
+import com.example.virtualeyeforblinds.extraClasses.Links;
+import com.example.virtualeyeforblinds.progessbar.ProgressDialogFragment;
 
 import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LinkPlacesActivity extends AppCompatActivity {
 
@@ -47,6 +57,7 @@ public class LinkPlacesActivity extends AppCompatActivity {
         listOfPlaces.add("Floor7");
 
         createDynamicGridView();
+        allLinks();
     }
 
 //    public void createDynamicGridView(){
@@ -67,6 +78,29 @@ public class LinkPlacesActivity extends AppCompatActivity {
 //
 //        }
 //    }
+
+
+public void allLinks(){
+    WebApi api= RetrofitClient.getInstance().getMyApi();
+    api.getAllLinks().enqueue(new Callback<ArrayList<Links>>() {
+        @Override
+        public void onResponse(Call<ArrayList<Links>> call, Response<ArrayList<Links>> response) {
+            if(response.isSuccessful()){
+                DataStorage dataStorage=DataStorage.getInstance();
+                dataStorage.setLinksArrayList(response.body());
+            }
+            else{
+                Toast.makeText(placesActivity, "response was unsuccesful", Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        @Override
+        public void onFailure(Call<ArrayList<Links>> call, Throwable t) {
+          //  Toast.makeText(placesActivity, t.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    });
+}
+
 public void createDynamicGridView() {
 
 
@@ -111,8 +145,19 @@ public void createDynamicGridView() {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i=new Intent(LinkPlacesActivity.this,MatrixActivity.class);
-                startActivity(i);
+                ProgressDialogFragment progressDialog = new ProgressDialogFragment();
+                progressDialog.show(getSupportFragmentManager(), "progress_dialog");
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        progressDialog.dismiss();
+
+                        Intent i = new Intent(getApplicationContext(), MatrixActivity.class);
+                        DataStorage dataStorage = DataStorage.getInstance();
+
+                        startActivity(i);
+                    }
+                }, 1000);
             }
         });
         binding.gridLayout.addView(button);

@@ -1,9 +1,20 @@
 package com.example.virtualeyeforblinds.extraClasses;
 
 public class Coordinate {
+    private String position;
+    private double steps;
     private double confidence;
     private String distance;
     private String label;
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
     private int xmax;
     private int xmin;
     private int ymax;
@@ -48,6 +59,11 @@ public class Coordinate {
     public String getLabel() {
         return label;
     }
+    public void setSteps(double steps){
+        this.steps=steps;
+    }
+
+    public double getSteps() {return steps;}
 
     public int getXmax() {
         return xmax;

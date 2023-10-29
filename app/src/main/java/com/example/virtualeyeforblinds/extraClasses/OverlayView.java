@@ -64,7 +64,9 @@ public class OverlayView extends View {
                 // Draw a rectangle based on the coordinates
                 canvas.drawRect(left, top, right, bottom, paint);
 
-                String label = coordinate.getLabel();
+                String label = coordinate.getLabel()+coordinate.getPosition()+coordinate.getSteps();
+
+
                 //String distance = coordinate.getDistance();
 
                 // Calculate text position above the rectangle
