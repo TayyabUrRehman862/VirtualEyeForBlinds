@@ -1,25 +1,24 @@
 package com.example.virtualeyeforblinds;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridLayout;
-import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.example.virtualeyeforblinds.api.RetrofitClient;
 import com.example.virtualeyeforblinds.api.WebApi;
 import com.example.virtualeyeforblinds.databinding.ActivityLinkPlacesBinding;
-import com.example.virtualeyeforblinds.extraClasses.DataStorage;
-import com.example.virtualeyeforblinds.extraClasses.Links;
+import com.example.virtualeyeforblinds.globalClass.DataStorage;
+import com.example.virtualeyeforblinds.models.Direction;
+import com.example.virtualeyeforblinds.models.Links;
 import com.example.virtualeyeforblinds.progessbar.ProgressDialogFragment;
 
 import java.util.ArrayList;
@@ -55,9 +54,13 @@ public class LinkPlacesActivity extends AppCompatActivity {
         listOfPlaces.add("Floor5");
         listOfPlaces.add("Floor6");
         listOfPlaces.add("Floor7");
-
+        getAllDirections();
         createDynamicGridView();
         allLinks();
+
+    }
+    public void goBack(View v){
+        finish();
     }
 
 //    public void createDynamicGridView(){
@@ -79,6 +82,30 @@ public class LinkPlacesActivity extends AppCompatActivity {
 //        }
 //    }
 
+    public void getAllDirections(){
+        WebApi api=RetrofitClient.getInstance().getMyApi();
+        api.getAllDirections().enqueue(new Callback<ArrayList<Direction>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Direction>> call, Response<ArrayList<Direction>> response) {
+                if(response.isSuccessful()){
+                    DataStorage d= DataStorage.getInstance();
+
+
+                    d.setDirectionArrayList(response.body());
+
+
+                }
+                else{
+                    Log.e("response was not successful of directions","no data in the direction");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Direction>> call, Throwable t) {
+                Log.e("Problem with Getting the direction",t.getMessage());
+            }
+        });
+    }
 
 public void allLinks(){
     WebApi api= RetrofitClient.getInstance().getMyApi();

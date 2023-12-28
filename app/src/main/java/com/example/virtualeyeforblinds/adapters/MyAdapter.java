@@ -1,20 +1,23 @@
-package com.example.virtualeyeforblinds;
+package com.example.virtualeyeforblinds.adapters;
 
-import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.virtualeyeforblinds.Place;
+import com.example.virtualeyeforblinds.PlacesActivity;
+import com.example.virtualeyeforblinds.R;
+import com.example.virtualeyeforblinds.globalClass.DataStorage;
+import com.example.virtualeyeforblinds.models.Direction;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.holder> {
 
@@ -25,6 +28,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.holder> {
         place.add(p);
         notifyDataSetChanged();
     }
+
 
 
    public MyAdapter(ArrayList<Place> place){
@@ -46,9 +50,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.holder> {
 
         Place currentPlace = place.get(position);
 
-        holder.name.setText(currentPlace.getName());
-        holder.type.setText(currentPlace.getType());
-        holder.floor.setText(currentPlace.getFloor());
+        holder.name.setText("Name: "+currentPlace.getName());
+        holder.type.setText("Type: "+currentPlace.getTypename());
+        holder.floor.setText("Floor: "+currentPlace.getFloorname());
+
+        holder.doorDirection.setText("Door Direction: "+ currentPlace.getDoorDirectionName());
+
+
+
+
+
         holder.img.setImageURI(currentPlace.getImg());
 
 
@@ -60,9 +71,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.holder> {
         return place.size();
     }
 
+    public void updateList(ArrayList<Place> newData) {
+        place = new ArrayList<>(newData);
+        notifyDataSetChanged(); // Notify the RecyclerView that the data has changed
+    }
+
 
     class holder extends RecyclerView.ViewHolder{
-        TextView name,floor,type;
+        TextView name,floor,type,doorDirection;
         ImageView img;
         //ImageButton deletePlace;
 
@@ -71,6 +87,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.holder> {
             name=itemView.findViewById(R.id.tv_for_name);
             floor=itemView.findViewById(R.id.tv_for_floor);
             type=itemView.findViewById(R.id.tv_for_type);
+            doorDirection=itemView.findViewById(R.id.tv_for_doorDirection);
             img=itemView.findViewById(R.id.image_of_place_list_item);
             //deletePlace=itemView.findViewById(R.id.deletePlaceRecycler);
 //            deletePlace.setOnClickListener(new View.OnClickListener() {

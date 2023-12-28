@@ -1,4 +1,6 @@
-package com.example.virtualeyeforblinds.extraClasses;
+package com.example.virtualeyeforblinds.apiresponses;
+
+import com.example.virtualeyeforblinds.models.Coordinate;
 
 import java.util.ArrayList;
 

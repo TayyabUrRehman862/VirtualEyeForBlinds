@@ -42,8 +42,6 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:textAlignment="center"
-
-
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -62,60 +60,132 @@
     </LinearLayout>
 
     <LinearLayout
+
         android:id="@+id/layout_floor"
         android:layout_below="@id/layout_name"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:gravity="center"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="10dp">
 
         <TextView
-            android:layout_gravity="start"
-            android:layout_width="wrap_content"
+            android:layout_weight="2"
+
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
 
             android:text="Floor"
             android:textAppearance="@style/ThemeOverlay.MaterialComponents.Dark"
             android:textSize="20sp"></TextView>
-        <Spinner
+        <Button
+            android:focusableInTouchMode="true"
+            android:id="@+id/selectFloortextViewButton"
+            android:background="@color/Transparent"
+            android:textAlignment="textStart"
+            android:backgroundTint="@color/white"
+            android:text="select floor"
+            android:layout_weight="4"
+            android:layout_width="0dp"
+            android:layout_height="40dp"></Button>
+        <ImageButton
+            android:id="@+id/selectFloorDropDownButton"
 
-            android:id="@+id/spinner_floor"
-            android:layout_width="match_parent"
+            android:backgroundTint="@color/Transparent"
+            android:src="@drawable/baseline_arrow_drop_down_24"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"></ImageButton>
 
-            android:layout_height="60dp"></Spinner>
 
     </LinearLayout>
 
     <LinearLayout
+
         android:id="@+id/layout_Type"
         android:layout_below="@id/layout_floor"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:gravity="center"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="10dp">
 
         <TextView
+            android:layout_weight="2"
 
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
+
             android:text="Type"
             android:textAppearance="@style/ThemeOverlay.MaterialComponents.Dark"
             android:textSize="20sp"></TextView>
-        <Spinner
+        <Button
+            android:focusableInTouchMode="true"
+            android:id="@+id/selectTypetextViewButton"
+            android:background="@color/Transparent"
+            android:textAlignment="textStart"
+            android:backgroundTint="@color/white"
+            android:text="select type"
+            android:layout_weight="4"
+            android:layout_width="0dp"
+            android:layout_height="40dp"></Button>
+        <ImageButton
+            android:id="@+id/selectTypeDropDownButton"
 
-            android:id="@+id/spinner_type"
-            android:layout_width="match_parent"
+            android:backgroundTint="@color/Transparent"
+            android:src="@drawable/baseline_arrow_drop_down_24"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"></ImageButton>
 
-            android:layout_height="60dp"></Spinner>
 
     </LinearLayout>
+
+    <LinearLayout
+
+        android:id="@+id/layout_DoorDirectionId"
+        android:layout_below="@id/layout_Type"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_weight="2"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:text="Door Direction"
+            android:textAppearance="@style/ThemeOverlay.MaterialComponents.Dark"
+            android:textSize="20sp"></TextView>
+        <Button
+            android:focusableInTouchMode="true"
+            android:id="@+id/selectDoorDirectiontextViewButton"
+            android:background="@color/Transparent"
+            android:textAlignment="textStart"
+            android:backgroundTint="@color/white"
+            android:text="select door direction"
+            android:layout_weight="4"
+            android:layout_width="0dp"
+            android:layout_height="40dp"></Button>
+        <ImageButton
+            android:id="@+id/selectDoorDirectionDropDownButton"
+
+            android:backgroundTint="@color/Transparent"
+            android:src="@drawable/baseline_arrow_drop_down_24"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"></ImageButton>
+
+
+    </LinearLayout>
+
     <LinearLayout
 
         android:gravity="center_horizontal"
-        android:layout_below="@id/layout_Type"
+        android:layout_below="@id/layout_DoorDirectionId"
         android:id="@+id/LLEast"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -133,7 +203,7 @@
             android:text="East Images: "></TextView>
         <Button
 
-            android:onClick="requestPermissionPlace"
+            android:onClick="btnEastImages"
             android:backgroundTint="@color/blue_p"
             android:textColor="@color/white"
             android:layout_marginTop="10dp"
@@ -164,7 +234,7 @@
             android:layout_below="@id/layout_Type"
             android:text="West Images: "></TextView>
         <Button
-            android:onClick="requestPermissionPlace"
+            android:onClick="btnWestImages"
             android:backgroundTint="@color/blue_p"
             android:textColor="@color/white"
             android:layout_marginTop="10dp"
@@ -195,7 +265,7 @@
             android:layout_below="@id/layout_Type"
             android:text="North Images: "></TextView>
         <Button
-            android:onClick="requestPermissionPlace"
+            android:onClick="btnNorthImages"
             android:backgroundTint="@color/blue_p"
             android:textColor="@color/white"
             android:layout_marginTop="10dp"
@@ -226,7 +296,7 @@
             android:layout_below="@id/layout_Type"
             android:text="South Images: "></TextView>
         <Button
-            android:onClick="requestPermissionPlace"
+            android:onClick="btnSouthImages"
             android:backgroundTint="@color/blue_p"
             android:textColor="@color/white"
             android:layout_marginTop="10dp"

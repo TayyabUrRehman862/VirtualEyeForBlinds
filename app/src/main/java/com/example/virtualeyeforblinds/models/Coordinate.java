@@ -1,4 +1,4 @@
-package com.example.virtualeyeforblinds.extraClasses;
+package com.example.virtualeyeforblinds.models;
 
 public class Coordinate {
     private String position;
@@ -15,10 +15,10 @@ public class Coordinate {
         this.position = position;
     }
 
-    private int xmax;
-    private int xmin;
-    private int ymax;
-    private int ymin;
+    private Integer xmax;
+    private Integer xmin;
+    private Integer ymax;
+    private Integer ymin;
 
     public void setConfidence(double confidence) {
         this.confidence = confidence;

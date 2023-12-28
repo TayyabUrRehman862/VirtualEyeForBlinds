@@ -86,7 +86,7 @@
 
     </Button>
     <Button
-        android:onClick="on_click_Save"
+        android:onClick="on_click_SavePerson"
         android:id="@+id/btn_save_image"
         android:text="Save"
         android:textColor="@color/white"

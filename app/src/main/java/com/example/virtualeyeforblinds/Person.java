@@ -4,14 +4,14 @@ import android.net.Uri;
 
 public class Person {
 
-    public int ID;
+    public Integer id;
 
     public int getID() {
-        return ID;
+        return id;
     }
 
     public void setID(int ID) {
-        this.ID = ID;
+        this.id = ID;
     }
 
     public String Name;

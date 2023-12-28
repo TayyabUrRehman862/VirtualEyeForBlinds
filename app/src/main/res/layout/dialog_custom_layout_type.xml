@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <!-- Add your image views for place names here -->
+
+    <!-- The layout for managing floors -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:id="@+id/topSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <SearchView
+
+                android:background="@drawable/to_round"
+                android:queryHint="Enter type name"
+                android:layoutDirection="rtl"
+                android:iconifiedByDefault="false"
+                android:id="@+id/searchViewType"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                />
+
+            <Button
+                android:backgroundTint="@color/purple_700"
+                android:background="@drawable/to_round"
+                android:textColor="@color/white"
+                android:id="@+id/addButtonType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Type"/>
+        </LinearLayout>
+
+        <!-- RecyclerView for the list of available floors -->
+        <androidx.recyclerview.widget.RecyclerView
+            tools:listitem="@layout/type_item_layout"
+            android:id="@+id/typeRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/topSection"
+            android:divider="@android:color/darker_gray"
+            android:dividerHeight="1dp"
+            android:padding="8dp" />
+    </RelativeLayout>
+</LinearLayout>

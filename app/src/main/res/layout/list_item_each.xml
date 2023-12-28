@@ -23,7 +23,7 @@
         <TextView
             android:textColor="@color/white"
             android:id="@+id/tv_for_name"
-            android:text="Name"
+            android:text="Name: "
             style="@style/TextAppearance.Material3.HeadlineMedium"
             android:textSize="16sp"
             android:layout_width="wrap_content"
@@ -32,14 +32,21 @@
             android:textColor="@color/white"
             android:id="@+id/tv_for_floor"
             android:textSize="15sp"
-            android:text="Floor"
+            android:text="Floor: "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
         <TextView
             android:textColor="@color/white"
             android:id="@+id/tv_for_type"
             android:textSize="15sp"
-            android:text="Type"
+            android:text="Type: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+        <TextView
+            android:textColor="@color/white"
+            android:id="@+id/tv_for_doorDirection"
+            android:textSize="15sp"
+            android:text="Door Direction: "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
     </LinearLayout>

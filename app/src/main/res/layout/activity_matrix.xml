@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:padding="16dp">
     <LinearLayout
-
+        android:id="@+id/layoutOfSaveAndCancelButtonMatrix"
         android:layout_gravity="bottom"
         android:gravity="center"
         android:orientation="horizontal"
@@ -27,8 +27,40 @@
             android:layout_width="80dp"
             android:layout_height="50dp"></Button>
     </LinearLayout>
+    <RelativeLayout
+
+        android:id="@+id/error_layout_matrix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <!-- Error message -->
+        <TextView
+            android:id="@+id/errorTextView_matrix"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="Error loading persons. Please check your connection."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Reload Button -->
+        <Button
+            android:textColor="@color/white"
+            android:backgroundTint="@color/blue_p"
+            android:id="@+id/reloadButton_matrix"
+            android:layout_below="@id/errorTextView_matrix"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Reload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
 
     <HorizontalScrollView
+        android:id="@+id/horizontal_scroll_view_matrix"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 

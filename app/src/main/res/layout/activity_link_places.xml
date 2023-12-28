@@ -17,7 +17,7 @@
             android:layout_marginTop="4dp"
             android:src="@drawable/arrow_back"
             android:layout_marginLeft="15dp"
-
+            android:onClick="goBack"
             android:layout_width="50dp"
             android:layout_height="50dp"></ImageView>
         <TextView

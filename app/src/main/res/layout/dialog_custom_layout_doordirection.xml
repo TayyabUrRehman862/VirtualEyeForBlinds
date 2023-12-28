@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- dialog_custom_layout_type.xml -->
+<LinearLayout
+    android:background="@color/border_green"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:background="@drawable/to_round"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/purple_700"
+        android:id="@+id/east_button_dialogdoorDirection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="East"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:background="@drawable/to_round"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/purple_700"
+        android:id="@+id/west_button_dialogdoorDirection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="West"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:background="@drawable/to_round"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/purple_700"
+        android:id="@+id/north_button_dialogdoorDirection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="North"
+        android:layout_marginBottom="8dp"/>
+
+    <Button
+        android:background="@drawable/to_round"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/purple_700"
+        android:id="@+id/south_button_dialogdoorDirection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="South"/>
+</LinearLayout>

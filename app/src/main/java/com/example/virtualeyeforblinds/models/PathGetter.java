@@ -1,4 +1,4 @@
-package com.example.virtualeyeforblinds.extraClasses;
+package com.example.virtualeyeforblinds.models;
 
 public class PathGetter {
 

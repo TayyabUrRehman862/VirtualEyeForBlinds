@@ -43,6 +43,39 @@
         android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:layout_centerInParent="true"
+
+        android:id="@+id/error_layout_persons"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <!-- Error message -->
+        <TextView
+            android:id="@+id/errorTextView_persons"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="Error loading persons. Please check your connection."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Reload Button -->
+        <Button
+            android:textColor="@color/white"
+            android:backgroundTint="@color/blue_p"
+            android:id="@+id/reloadButton_persons"
+            android:layout_below="@id/errorTextView_persons"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Reload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:background="@color/white"
         tools:listitem="@layout/list_item_each_person"

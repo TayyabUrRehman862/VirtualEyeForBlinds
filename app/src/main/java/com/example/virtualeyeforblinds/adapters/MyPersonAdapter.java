@@ -1,23 +1,34 @@
-package com.example.virtualeyeforblinds;
+package com.example.virtualeyeforblinds.adapters;
 
-import android.content.DialogInterface;
+import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.virtualeyeforblinds.Person;
+import com.example.virtualeyeforblinds.R;
+import com.example.virtualeyeforblinds.globalClass.DataStorage;
+import com.squareup.picasso.Picasso;
+
+import java.io.File;
 import java.util.ArrayList;
 
 public class MyPersonAdapter extends RecyclerView.Adapter<MyPersonAdapter.holder>{
+
+    String BASE_URL="http://192.168.100.6:5000";
     ArrayList<Person> person;
+    private Context context;
+    // Other fields and methods...
+
+
 
     public void addPerson(Person p){
         person.add(p);
@@ -26,8 +37,9 @@ public class MyPersonAdapter extends RecyclerView.Adapter<MyPersonAdapter.holder
     }
 
 
-    public MyPersonAdapter(ArrayList<Person> p) {
+    public MyPersonAdapter(Context context,ArrayList<Person> p) {
         this.person = p;
+        this.context=context;
     }
 
     @NonNull
@@ -37,13 +49,44 @@ public class MyPersonAdapter extends RecyclerView.Adapter<MyPersonAdapter.holder
         View view = inflater.inflate(R.layout.list_item_each_person, parent, false);
         return new holder(view);
     }
+    private String getPersonImagePath(Person person, String directory) {
+        String personName = person.getName();
+        return directory + "/" + personName;
+    }
 
     @Override
     public void onBindViewHolder(@NonNull holder holder, int position) {
-        Person currentPerson = person.get(position);
+        try {
 
-        holder.name.setText(currentPerson.getName());
-        //holder.img.setImageURI(currentPerson.getImgPerson());
+            Person currentPerson = person.get(position);
+
+            holder.name.setText(currentPerson.getName());
+            if(!currentPerson.getName().equalsIgnoreCase("Tanzeela")) {
+                String directory = DataStorage.getInstance().getImageDirectory(holder.itemView.getContext());
+
+                // Assuming you have a method to get the image path for the current person
+                String personImagePath = getPersonImagePath(currentPerson, directory);
+
+                Log.e("person image path in adapter", personImagePath);
+
+                // Load the image using Picasso
+                Picasso.get()
+                        .load(new File(personImagePath)) // Assuming imagePath is a valid file path
+                        .into(holder.img);
+
+
+                //holder.img.setImageURI(currentPerson.getImgPerson());
+            }
+            else {
+                //holder.img.setImageURI(currentPerson.getImgPerson());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+
     }
 
     @Override
@@ -55,6 +98,10 @@ public class MyPersonAdapter extends RecyclerView.Adapter<MyPersonAdapter.holder
             return 0;
         }
 
+    }
+    public void updateList(ArrayList<Person> newData) {
+        person = new ArrayList<>(newData);
+        notifyDataSetChanged(); // Notify the RecyclerView that the data has changed
     }
 
 
